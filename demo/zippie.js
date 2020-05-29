@@ -35,7 +35,7 @@ const zippie = (function () {
         this.request = new PaymentRequest(supportedInstruments, details)
 
         let canMakePayment = await this.request.canMakePayment()
-        if (!canMakePayment) {
+        if (!canMakePayment || this.paymentData.force !== "false") {
           return openInFullscreen(this.paymentData)
         }
 

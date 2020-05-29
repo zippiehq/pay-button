@@ -12,9 +12,10 @@ function onBuyClicked() {
     orderId:
       '0x0000000000000000000000000000000000000000000000000000000000000001',
     amount: document.getElementById('amount').value,
-    currency: document.getElementById('currency').value,
+    currency: document.getElementById('currency').value.toUpperCase(),
     email: document.getElementById('email').value,
     env: document.getElementById('env').value,
+    force: document.getElementById('force').value,
   }
 
   if (paymentData.amount === '' || paymentData.email === '') {
