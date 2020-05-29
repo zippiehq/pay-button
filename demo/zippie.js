@@ -12,7 +12,7 @@ const zippie = (function () {
 
         const supportedInstruments = [
           {
-            supportedMethods: 'https://dev.zippie.com',
+            supportedMethods: `https://${this.paymentData.env}.zippie.com`,
             data: {
               merchantId: this.paymentData.merchantId,
               orderId: this.paymentData.orderId,
@@ -59,7 +59,7 @@ const zippie = (function () {
     return new Promise(async (resolve, reject) => {
       // XXX: Focus instead of new window if we have one already?
       window.open(
-        `https://dev.zippie.com/#pay-fullscreen=${paymentData.merchantId}/${paymentData.orderId}/${paymentData.amount}/${paymentData.currency}/${paymentData.email}`,
+        `https://${paymentData.env}.zippie.com/#pay-fullscreen=${paymentData.merchantId}/${paymentData.orderId}/${paymentData.amount}/${paymentData.currency}/${paymentData.email}`,
       )
       // Wait for response
       // XXX: Also check if window has been closed manually?

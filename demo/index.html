@@ -11,9 +11,20 @@
 <body>
   <div id="contents">
     <h1>Zippie Pay Demo</h1>
+    <label for="env">Environment:</label><br>
+    <select name="env" id="env">
+      <option value="dev">Dev</option>
+      <option value="testing">Testing</option>
+    </select><br>
     <label for="email">Email:</label><br>
     <input type="email" id="email" name="email" placeholder="Enter email" width="200px"><br>
-    <label for="amount">Amount (KSH):</label><br>
+    <label for="env">Currency:</label><br>
+    <select name="currency" id="currency">
+      <option value="ksh">KSH</option>
+      <option value="usd">USD</option>
+      <option value="eur">EUR</option>
+    </select><br>
+    <label for="amount">Amount:</label><br>
     <input type="number" id="amount" name="amount" min="1" max="1000" placeholder="Enter amount" width="200px">
     <p> <a href="index.js">View
       source</a>.</p>
