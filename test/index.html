@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4CAF50">
+  <title>Zippie Pay Demo</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+  <div id="contents">
+    <h1>Zippie Pay Demo</h1>
+    <label for="env">Environment:</label><br>
+    <select name="env" id="env">
+      <option value="localhost">Localhost</option>
+      <option value="dev">Dev</option>
+      <option value="testing">Testing</option>
+    </select><br><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="Enter email" width="200px"><br><br>
+    <label for="env">Currency:</label><br>
+    <select name="currency" id="currency">
+      <option value="ksh">KSH</option>
+      <option value="usd">USD</option>
+      <option value="eur">EUR</option>
+    </select><br><br>
+    <label for="amount">Amount:</label><br>
+    <input type="number" id="amount" name="amount" min="1" max="1000" placeholder="Enter amount" width="200px"><br><br>
+    <label for="amount">Force "fullscreen mode" (fallback for Payment Request API):</label><br>
+    <select name="force" id="force">
+      <option value="false">NO</option>
+      <option value="true">YES</option>
+    </select><br><br>
+    <p> <a href="index.js">View
+      source</a>.</p>
+    <p><button id="buyButton">Buy</button></p>
+  </div>
+  <pre id="msg"></pre>
+  <script src="./index.js"></script>
+  <script src="./zippie.js"></script>
+</body>
+</html>
