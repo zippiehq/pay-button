@@ -40,7 +40,7 @@ const zippie = (function () {
     if (env === 'localhost') {
       return 'https://localhost:8443'
     }
-    return `https://${env}.zippie.com`
+    return `https://${env}.zippie.com/`
   }
 
   function getPaymentRequest(paymentData, paymentDataEncoded) {
