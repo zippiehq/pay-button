@@ -72,7 +72,7 @@ const zippie = (function () {
     return new Promise(async (resolve, reject) => {
       // XXX: Focus instead of new window if we have one already?
       window.open(
-        `${getUrl(paymentData.env)}/#pay-fullscreen=${paymentDataEncoded}`,
+        `${getUrl(paymentData.env)}/pay.html#pay-fullscreen=${paymentDataEncoded}`,
       )
       // Wait for response
       // XXX: Also check if window has been closed manually?
