@@ -7,8 +7,8 @@ function onBuyClicked() {
   const paymentData = {
     // MerchantId must be an Ethereum Address (public key) you own (you posses the private key)
     // it can also be a Zippie ENS name for this address
-    merchantId: 'demo.zippie',
-    orderId: 'YOUR_ORDER_ID',
+    merchantId: document.getElementById('merchantId').value,
+    orderId: document.getElementById('orderId').value,
     amount: document.getElementById('amount').value,
     currency: document.getElementById('currency').value.toUpperCase(),
     email: document.getElementById('email').value,
