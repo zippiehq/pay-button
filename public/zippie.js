@@ -37,8 +37,14 @@ const zippie = (function () {
   }
 
   function getUrl(env) {
+    if(!env) {
+      return 'https://zippie.com/'
+    }
     if (env === 'localhost') {
       return 'https://localhost:8443'
+    }
+    if (env === 'prod') {
+      return 'https://zippie.com/'
     }
     return `https://${env}.zippie.com/`
   }
@@ -102,7 +108,7 @@ const zippie = (function () {
       //   ],
       //   options: { requestPayerName: true, requestPayerEmail: true, forceFullscreenMode: false }, (move to merchant setting)
       // }
-      const request = new ZippiePaymentRequest({ env: "dev", force: "false", ...paymentData })
+      const request = new ZippiePaymentRequest({ force: "false", ...paymentData })
       return request
     },
   }
