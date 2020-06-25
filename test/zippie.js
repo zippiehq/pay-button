@@ -40,6 +40,9 @@ const zippie = (function () {
     if (env === 'localhost') {
       return 'https://localhost:8443/'
     }
+    if (env === 'prod') {
+      return 'https://zippie.com/'
+    }
     return `https://${env}.zippie.com/`
   }
 
