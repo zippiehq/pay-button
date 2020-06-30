@@ -7,7 +7,6 @@ const zippie = (function () {
 
     async show() {
       try {
-
         if (!window.PaymentRequest) {
           return openInFullscreen(this.paymentData, this.paymentDataEncoded)
         }
@@ -37,16 +36,13 @@ const zippie = (function () {
   }
 
   function getUrl(env) {
-    if(!env) {
-      return 'https://zippie.com/'
+    if (env === 'testing') {
+      return 'https://testing.zippie.com/'
     }
-    if (env === 'localhost') {
-      return 'https://localhost:8443'
+    if (env === 'dev') {
+      return 'https://dev.zippie.com/'
     }
-    if (env === 'prod') {
-      return 'https://zippie.com/'
-    }
-    return `https://${env}.zippie.com/`
+    return `https://zippie.com/`
   }
 
   function getPaymentRequest(paymentData, paymentDataEncoded) {
@@ -54,7 +50,7 @@ const zippie = (function () {
       {
         supportedMethods: getUrl(paymentData.env),
         data: {
-          paymentData: paymentData, // XXX: Remove?
+          paymentData: paymentData,
           paymentDataEncoded: paymentDataEncoded
         },
       },
@@ -76,12 +72,9 @@ const zippie = (function () {
 
   function openInFullscreen(paymentData, paymentDataEncoded) {
     return new Promise(async (resolve, reject) => {
-      // XXX: Focus instead of new window if we have one already?
       window.open(
         `${getUrl(paymentData.env)}pay.html#pay-fullscreen=${paymentDataEncoded}`,
       )
-      // Wait for response
-      // XXX: Also check if window has been closed manually?
       window.onmessage = function (e) {
         if (e.data.status === 'ok') {
           resolve(e.data)
@@ -94,19 +87,13 @@ const zippie = (function () {
 
   return {
     paymentRequest: function (paymentData) {
-      // XXX: Validate data
       // const paymentData = {
-      //   merchantId: 'demo.zippie',
-      //   orderId: '000001',
-      //   amount: 1.23 (two decimals => send as 123?)
+      //   merchantId: 'test.merchant',
+      //   orderId: 'MY_ORDER_ID',
+      //   amount: 1.23
       //   currency: 'EUR',
-      //   email: my@email.com, (prefill email field in UI)
-      //   paymentMethods: ['mpesa', 'zippie', 'creditcard'],
-      //   orderDetails: [
-      //    { label: 'T-shirt', value: '100 KSH' },
-      //    { label: 'Fee', value: '5 KSH' },
-      //   ],
-      //   options: { requestPayerName: true, requestPayerEmail: true, forceFullscreenMode: false }, (move to merchant setting)
+      //   email: my@email.com, (to prefill email field in Zippie Pay UI)
+      //   force: 'false' (true will open Zippie Pay UI in new tab instead using Payment Request API even if supported in browser)  
       // }
       const request = new ZippiePaymentRequest({ force: "false", ...paymentData })
       return request
