@@ -1,0 +1,20 @@
+{
+  "name": "@zippie/pay-button",
+  "version": "1.0.0",
+  "description": "Integrate Zippie Pay to your website",
+  "main": "./dist/zippie-pay.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "prepublishOnly": "webpack --mode=production"
+}
