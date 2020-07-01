@@ -1,6 +1,6 @@
 {
   "name": "@zippie/pay-button",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Integrate Zippie Pay to your website",
   "main": "./dist/zippie-pay.js",
   "files": [
@@ -10,8 +10,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zippiehq/pay-button.git"
+  },
+  "keywords": [
+    "Zippie",
+    "Pay"
+  ],
+  "author": "Zippie",
   "license": "ISC",
+  "homepage": "https://github.com/zippiehq/pay-button#readme",
   "devDependencies": {
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"

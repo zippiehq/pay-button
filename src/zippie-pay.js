@@ -116,6 +116,6 @@ export function paymentRequest(paymentData) {
   //   email: my@email.com, (to prefill email field in Zippie Pay UI)
   //   force: 'false' (true will open Zippie Pay UI in new tab instead using Payment Request API even if supported in browser)  
   // }
-  const request = new ZippiePaymentRequest({ force: "false", ...paymentData })
+  const request = new ZippiePaymentRequest({ force: "true", ...paymentData })
   return request
 }
