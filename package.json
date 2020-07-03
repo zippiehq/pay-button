@@ -1,10 +1,11 @@
 {
   "name": "@zippie/pay-button",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Integrate Zippie Pay to your website",
   "main": "./dist/zippie-pay.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
