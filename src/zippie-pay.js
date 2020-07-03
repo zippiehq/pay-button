@@ -98,7 +98,7 @@ function openInFullscreen(paymentData, paymentDataEncoded) {
       `${getUrl(paymentData.env)}pay.html#pay-fullscreen=${paymentDataEncoded}`,
     )
     window.onmessage = function (e) {
-      if (e.data.status === 'ok') {
+      if (e.data.status === 'ok' || e.data.details && e.data.details.status === 'ok' && !e.data.details.error) {
         resolve(e.data)
         return
       }
